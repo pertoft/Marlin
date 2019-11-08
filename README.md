@@ -1,4 +1,7 @@
-﻿# Marlin 3D Printer Firmware
+# Fork customized for CR-10S with BL-Touch
+Everything is vanilla except the configuration.h and configuration_adv.h
+
+# Marlin 3D Printer Firmware
 
 [![Build Status](https://travis-ci.org/MarlinFirmware/Marlin.svg?branch=bugfix-2.0.x)](https://travis-ci.org/MarlinFirmware/Marlin)
 ![GitHub](https://img.shields.io/github/license/marlinfirmware/marlin.svg)
