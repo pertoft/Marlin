@@ -450,7 +450,7 @@
 // Above this temperature the heater will be switched off.
 // This can protect components from overheating, but NOT from shorts and failures.
 // (Use MINTEMP for thermistor short/failure protection.)
-#define HEATER_0_MAXTEMP 250
+#define HEATER_0_MAXTEMP 260
 #define HEATER_1_MAXTEMP 275
 #define HEATER_2_MAXTEMP 275
 #define HEATER_3_MAXTEMP 275
@@ -822,7 +822,8 @@
  *
  * See https://github.com/synthetos/TinyG/wiki/Jerk-Controlled-Motion-Explained
  */
-//#define S_CURVE_ACCELERATION
+// PTO: Tester
+#define S_CURVE_ACCELERATION
 
 //===========================================================================
 //============================= Z Probe Options =============================
@@ -1504,7 +1505,7 @@
 #define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
 
 #define PREHEAT_2_LABEL       "PET-G"
-#define PREHEAT_2_TEMP_HOTEND 230
+#define PREHEAT_2_TEMP_HOTEND 240
 #define PREHEAT_2_TEMP_BED    70
 #define PREHEAT_2_FAN_SPEED     0 // Value from 0 to 255
 
