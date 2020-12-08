@@ -541,7 +541,6 @@
   //#define MIN_BED_POWER 0
   //#define PID_BED_DEBUG // Sends debug data to the serial port.
 
-<<<<<<< HEAD
   //PTO CR-10S BED @55C
   #define DEFAULT_bedKp 143.73
   #define DEFAULT_bedKi 27.85
@@ -552,13 +551,6 @@
   // #define DEFAULT_bedKp 10.00
   // #define DEFAULT_bedKi .023
   // #define DEFAULT_bedKd 305.4
-=======
-  // 120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
-  // from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
-  #define DEFAULT_bedKp 10.00
-  #define DEFAULT_bedKi .023
-  #define DEFAULT_bedKd 305.4
->>>>>>> eb254ef70bcd699c7774dd434fb0d4728d2f731f
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
@@ -829,13 +821,9 @@
  *   https://blog.kyneticcnc.com/2018/10/computing-junction-deviation-for-marlin.html
  */
 #if DISABLED(CLASSIC_JERK)
-<<<<<<< HEAD
-  #define JUNCTION_DEVIATION_MM 0.067 // (mm) Distance from real junction edge
-=======
   #define JUNCTION_DEVIATION_MM 0.013 // (mm) Distance from real junction edge
   #define JD_HANDLE_SMALL_SEGMENTS    // Use curvature estimation instead of just the junction angle
                                       // for small segments (< 1mm) with large junction angles (> 135°).
->>>>>>> eb254ef70bcd699c7774dd434fb0d4728d2f731f
 #endif
 
 /**
@@ -1012,7 +1000,6 @@
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-<<<<<<< HEAD
 #define MIN_PROBE_EDGE 22
 
 // X and Y axis travel speed (mm/m) between probes
@@ -1022,15 +1009,6 @@
 
 // Feedrate (mm/m) for the first approach when double-probing (MULTIPLE_PROBING == 2)
 #define Z_PROBE_SPEED_FAST HOMING_FEEDRATE_Z / 5
-=======
-#define PROBING_MARGIN 10
-
-// X and Y axis travel speed (mm/min) between probes
-#define XY_PROBE_SPEED (133*60)
-
-// Feedrate (mm/min) for the first approach when double-probing (MULTIPLE_PROBING == 2)
-#define Z_PROBE_SPEED_FAST HOMING_FEEDRATE_Z
->>>>>>> eb254ef70bcd699c7774dd434fb0d4728d2f731f
 
 // Feedrate (mm/min) for the "accurate" probe of each point
 #define Z_PROBE_SPEED_SLOW (Z_PROBE_SPEED_FAST / 2)
@@ -1213,21 +1191,11 @@
  */
 #define FILAMENT_RUNOUT_SENSOR
 #if ENABLED(FILAMENT_RUNOUT_SENSOR)
-<<<<<<< HEAD
-  #define NUM_RUNOUT_SENSORS   1     // Number of sensors, up to one per extruder. Define a FIL_RUNOUT#_PIN for each.
-  //PTO: Flipped
-  //#define FIL_RUNOUT_INVERTING true // Set to true to invert the logic of the sensor.
-  #define FIL_RUNOUT_INVERTING true // Set to true to invert the logic of the sensor.
-  #define FIL_RUNOUT_PULLUP          // Use internal pullup for filament runout pins.
-  //#define FIL_RUNOUT_PULLDOWN      // Use internal pulldown for filament runout pins.
-  #define FIL_RUNOUT_PIN 2 // Creality CR10-S stock sensor
-=======
   #define FIL_RUNOUT_ENABLED_DEFAULT true // Enable the sensor on startup. Override with M412 followed by M500.
   #define NUM_RUNOUT_SENSORS   1          // Number of sensors, up to one per extruder. Define a FIL_RUNOUT#_PIN for each.
   #define FIL_RUNOUT_STATE     LOW        // Pin state indicating that filament is NOT present.
   #define FIL_RUNOUT_PULLUP               // Use internal pullup for filament runout pins.
   //#define FIL_RUNOUT_PULLDOWN           // Use internal pulldown for filament runout pins.
->>>>>>> eb254ef70bcd699c7774dd434fb0d4728d2f731f
 
   // Set one or more commands to execute on filament runout.
   // (After 'M412 H' Marlin will ask the host to handle the process.)
@@ -1443,22 +1411,11 @@
 #define Z_SAFE_HOMING
 
 #if ENABLED(Z_SAFE_HOMING)
-<<<<<<< HEAD
-  #define Z_SAFE_HOMING_X_POINT 150 // X point for Z homing when homing all axes (G28).
-  #define Z_SAFE_HOMING_Y_POINT 150 // Y point for Z homing when homing all axes (G28).
-#endif
-
-// Homing speeds (mm/m)
-// #define HOMING_FEEDRATE_XY (20*60)
-// #define HOMING_FEEDRATE_Z  (8*60)
-//PTO:BLTOUCH-SPEED
-=======
   #define Z_SAFE_HOMING_X_POINT X_CENTER  // X point for Z homing
   #define Z_SAFE_HOMING_Y_POINT Y_CENTER  // Y point for Z homing
 #endif
 
 // Homing speeds (mm/min)
->>>>>>> eb254ef70bcd699c7774dd434fb0d4728d2f731f
 #define HOMING_FEEDRATE_XY (50*60)
 #define HOMING_FEEDRATE_Z  (20*60)
 
@@ -1592,14 +1549,10 @@
 
 #if ENABLED(NOZZLE_PARK_FEATURE)
   // Specify a park position as { X, Y, Z_raise }
-<<<<<<< HEAD
-  #define NOZZLE_PARK_POINT { (X_MIN_POS + 3), (Y_MAX_POS - 3), 10 }
-=======
   #define NOZZLE_PARK_POINT { (X_MIN_POS + 10), (Y_MAX_POS - 10), 20 }
   //#define NOZZLE_PARK_X_ONLY          // X move only is required to park
   //#define NOZZLE_PARK_Y_ONLY          // Y move only is required to park
   #define NOZZLE_PARK_Z_RAISE_MIN   2   // (mm) Always raise Z by at least this distance
->>>>>>> eb254ef70bcd699c7774dd434fb0d4728d2f731f
   #define NOZZLE_PARK_XY_FEEDRATE 100   // (mm/s) X and Y axes feedrate (also used for delta Z axis)
   #define NOZZLE_PARK_Z_FEEDRATE    5   // (mm/s) Z axis feedrate (not used for delta printers)
 #endif
