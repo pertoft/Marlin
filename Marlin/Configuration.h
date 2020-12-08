@@ -501,10 +501,10 @@
 
     
   #else
-   // PTO CR-10S @195C
-   #define DEFAULT_Kp 37.02
-   #define DEFAULT_Ki 3.86
-   #define DEFAULT_Kd 88.71
+   // PTO CR-10S @205C
+  #define DEFAULT_Kp 30.17
+  #define DEFAULT_Ki 3.58
+  #define DEFAULT_Kd 63.63
   #endif
 #endif // PIDTEMP
 
@@ -835,7 +835,7 @@
  * See https://github.com/synthetos/TinyG/wiki/Jerk-Controlled-Motion-Explained
  */
 // PTO: Tester
-#define S_CURVE_ACCELERATION
+//#define S_CURVE_ACCELERATION
 
 //===========================================================================
 //============================= Z Probe Options =============================
@@ -996,11 +996,11 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -48, -10, -2.10 }
+#define NOZZLE_TO_PROBE_OFFSET { -48, -10, -0.55 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define MIN_PROBE_EDGE 22
+#define PROBING_MARGIN 22
 
 // X and Y axis travel speed (mm/m) between probes
 //#define XY_PROBE_SPEED 8000
@@ -1193,10 +1193,11 @@
 #if ENABLED(FILAMENT_RUNOUT_SENSOR)
   #define FIL_RUNOUT_ENABLED_DEFAULT true // Enable the sensor on startup. Override with M412 followed by M500.
   #define NUM_RUNOUT_SENSORS   1          // Number of sensors, up to one per extruder. Define a FIL_RUNOUT#_PIN for each.
-  #define FIL_RUNOUT_STATE     LOW        // Pin state indicating that filament is NOT present.
+  //#define FIL_RUNOUT_STATE     LOW        // Pin state indicating that filament is NOT present.
+  #define FIL_RUNOUT_STATE     HIGH        // Pin state indicating that filament is NOT present.  
   #define FIL_RUNOUT_PULLUP               // Use internal pullup for filament runout pins.
+  #define FIL_RUNOUT_PIN 2
   //#define FIL_RUNOUT_PULLDOWN           // Use internal pulldown for filament runout pins.
-
   // Set one or more commands to execute on filament runout.
   // (After 'M412 H' Marlin will ask the host to handle the process.)
   #define FILAMENT_RUNOUT_SCRIPT "M600"
@@ -1411,8 +1412,10 @@
 #define Z_SAFE_HOMING
 
 #if ENABLED(Z_SAFE_HOMING)
-  #define Z_SAFE_HOMING_X_POINT X_CENTER  // X point for Z homing
-  #define Z_SAFE_HOMING_Y_POINT Y_CENTER  // Y point for Z homing
+  #define Z_SAFE_HOMING_X_POINT 150 // X point for Z homing when homing all axes (G28).
+  #define Z_SAFE_HOMING_Y_POINT 150 // Y point for Z homing when homing all axes (G28).
+  // #define Z_SAFE_HOMING_X_POINT X_CENTER  // X point for Z homing
+  // #define Z_SAFE_HOMING_Y_POINT Y_CENTER  // Y point for Z homing
 #endif
 
 // Homing speeds (mm/min)
@@ -1746,7 +1749,7 @@
  * SD Card support is disabled by default. If your controller has an SD slot,
  * you must uncomment the following option or it won't work.
  */
-#define SDSUPPORT
+//#define SDSUPPORT
 
 /**
  * SD CARD: SPI SPEED
