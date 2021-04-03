@@ -444,23 +444,23 @@
 
 #define TEMP_RESIDENCY_TIME     10  // (seconds) Time to wait for hotend to "settle" in M109
 #define TEMP_WINDOW              1  // (°C) Temperature proximity for the "temperature reached" timer
-#define TEMP_HYSTERESIS          3  // (°C) Temperature proximity considered "close enough" to the target
+#define TEMP_HYSTERESIS          2  // (°C) Temperature proximity considered "close enough" to the target
 
 #define TEMP_BED_RESIDENCY_TIME 10  // (seconds) Time to wait for bed to "settle" in M190
 #define TEMP_BED_WINDOW          1  // (°C) Temperature proximity for the "temperature reached" timer
-#define TEMP_BED_HYSTERESIS      3  // (°C) Temperature proximity considered "close enough" to the target
+#define TEMP_BED_HYSTERESIS      2  // (°C) Temperature proximity considered "close enough" to the target
 
 // Below this temperature the heater will be switched off
 // because it probably indicates a broken thermistor wire.
-#define HEATER_0_MINTEMP   2
-#define HEATER_1_MINTEMP   2
-#define HEATER_2_MINTEMP   2
-#define HEATER_3_MINTEMP   2
-#define HEATER_4_MINTEMP   2
-#define HEATER_5_MINTEMP   2
-#define HEATER_6_MINTEMP   2
-#define HEATER_7_MINTEMP   2
-#define BED_MINTEMP        2
+#define HEATER_0_MINTEMP   1
+#define HEATER_1_MINTEMP   1
+#define HEATER_2_MINTEMP   1
+#define HEATER_3_MINTEMP   1
+#define HEATER_4_MINTEMP   1
+#define HEATER_5_MINTEMP   1
+#define HEATER_6_MINTEMP   1
+#define HEATER_7_MINTEMP   1
+#define BED_MINTEMP        1
 
 // Above this temperature the heater will be switched off.
 // This can protect components from overheating, but NOT from shorts and failures.
@@ -500,11 +500,12 @@
     #define DEFAULT_Kd_LIST {  88.71,  88.71 }
 
     
+     
   #else
    // PTO CR-10S @205C
-  #define DEFAULT_Kp 30.17
-  #define DEFAULT_Ki 3.58
-  #define DEFAULT_Kd 63.63
+  #define DEFAULT_Kp 30.24
+  #define DEFAULT_Ki 3.38
+  #define DEFAULT_Kd 72.31
   #endif
 #endif // PIDTEMP
 
@@ -1193,13 +1194,13 @@
   // After a runout is detected, continue printing this length of filament
   // before executing the runout script. Useful for a sensor at the end of
   // a feed tube. Requires 4 bytes SRAM per sensor, plus 4 bytes overhead.
-  //#define FILAMENT_RUNOUT_DISTANCE_MM 25
+  #define FILAMENT_RUNOUT_DISTANCE_MM 7
 
   #ifdef FILAMENT_RUNOUT_DISTANCE_MM
     // Enable this option to use an encoder disc that toggles the runout pin
     // as the filament moves. (Be sure to set FILAMENT_RUNOUT_DISTANCE_MM
     // large enough to avoid false positives.)
-    //#define FILAMENT_MOTION_SENSOR
+   #define FILAMENT_MOTION_SENSOR
   #endif
 #endif
 
