@@ -499,13 +499,11 @@
     #define DEFAULT_Ki_LIST {    3.86,   3.86 }
     #define DEFAULT_Kd_LIST {  88.71,  88.71 }
 
-    
-     
   #else
-   // PTO CR-10S @205C
-  #define DEFAULT_Kp 30.24
-  #define DEFAULT_Ki 3.38
-  #define DEFAULT_Kd 72.31
+  // PTO CR-10S Microswiss @210C  
+  #define DEFAULT_Kp 50.74
+  #define DEFAULT_Ki 9.83
+  #define DEFAULT_Kd 65.47
   #endif
 #endif // PIDTEMP
 
